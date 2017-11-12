@@ -18,13 +18,14 @@ new (function() {
     // stop waiting.
     ext.get_vocative = function(name, callback) {
         var name = name.replace(/ /g, "+");
-        console.log('Getting vocative for ' + name);
+        console.log('Getting vocative for ' + name+", callback "+callback);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback='+callback,
               dataType: 'jsonp',
               success: function(data) {
                   // Got the data - parse it and return the temperature
                   vocative = data["name"];
+                  console.log("return"+vocative);
                   callback(vocative);
               }
         });
