@@ -33,7 +33,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Get vocative for the name', 'get_vocative', 'Jan'],
+            ['w', 'Get vocative for the name %s', 'get_vocative', 'Jan'],
         ]
     };
 
