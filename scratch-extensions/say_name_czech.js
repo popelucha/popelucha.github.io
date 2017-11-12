@@ -20,8 +20,8 @@ new (function() {
         var name = name.replace(/ /g, "+");
         console.log('Getting vocative for ' + name);
         $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json',
-              dataType: 'json',
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
+              dataType: 'jsonp',
               success: function(data) {
                   // Got the data - parse it and return the temperature
                   vocative = data["name"];
