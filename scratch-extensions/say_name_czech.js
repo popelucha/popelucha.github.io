@@ -20,7 +20,7 @@ new (function() {
         var name = name.replace(/ /g, "+");
         console.log('Getting vocative for ' + name);
         $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback='+callback,
               dataType: 'jsonp',
               success: function(data) {
                   // Got the data - parse it and return the temperature
@@ -33,7 +33,7 @@ new (function() {
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Get vocative for the name %s', 'get_vocative', 'Jan'],
+            ['R', 'Get vocative for the name %s', 'get_vocative', 'Jan'],
         ]
     };
 
