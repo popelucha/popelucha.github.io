@@ -29,7 +29,7 @@ new (function() {
               url: 'https://nlp.fi.muni.cz/projekty/topicks/process.py?text='+sentence+'&format=json',
               dataType: 'json',
               success: function(data){
-                  callback(data);
+                  callback(data[0]);
               }
         });
     }
@@ -86,7 +86,7 @@ new (function() {
         blocks: [
             ['R', 'Get vocative for the name %s', 'get_vocative', 'kamarád'],
             ['R', 'Get gender for the name %s', 'get_gender', 'm'],
-            ['R', 'Get polarity for sentence %s', 'get_polarity', 'true'],
+            ['b', 'Get polarity for sentence %s', 'get_polarity', 1],
             ['R', 'Get topics for sentence %s', 'get_topics', ''],
         ]
     };
