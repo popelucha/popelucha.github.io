@@ -1,13 +1,26 @@
 
 new (function() {
     var ext = this;
-        window.f = function(json){
+    var vocative = "";
+
+    function getVocative(str, callback){
+        console.log("vocative from",str);
+        $.ajax({
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
+              dataType: 'jsonp',
+              jsonp: "json_callback",
+              success: function(data){
+                  vocative = data["name"];
+                  callback(vocative);
+              }
+
+        });
                   console.log("return ",json);
                   vocative = json["name"];
                   console.log("return ",vocative);
                   callback = json["callback"];
 
-        };
+    };
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
@@ -23,19 +36,9 @@ new (function() {
     // stop waiting.
 
     ext.get_vocative = function(name, callback) {
-
-
         var name = name.replace(/ /g, "+");
         console.log('Getting vocative for ' + name+", callback "+callback);
-        $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f&second_callback='+callback,
-              dataType: 'jsonp',
-              success: function(data){
-                  vocative = data["name"];
-                  callback(vocative);
-              }
-
-        });
+        getVocative(name, callback);
     };
 
     // Block and block menu descriptions
