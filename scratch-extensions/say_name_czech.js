@@ -13,22 +13,23 @@ new (function() {
 
     function getVocative(name, callback){
         console.log("vocative from",name);
-        var callback = callback;
+//        var callback = callback;
         $.ajax({
               url: 'https://crossorigin.me/https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
               dataType: 'json',
               jsonp: "json_callback",
               success: function(data){
+                  console.log("success",data);
                   vocative = data["name"];
                   callback(vocative);
               }
 
         });
-                  console.log("return ",json);
+/*                  console.log("return ",json);
                   vocative = json["name"];
                   console.log("return ",vocative);
                   callback(vocative);
-
+*/
     }
 
     // Cleanup function when the extension is unloaded
