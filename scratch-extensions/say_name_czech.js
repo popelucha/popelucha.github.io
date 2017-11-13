@@ -7,7 +7,7 @@ new (function() {
     window.f = function(json){
        vocative = json;
        console.log("tady",json);
-       vocative = data["name"];
+       vocative = json["name"];
        callback(vocative);
     }
 
