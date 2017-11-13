@@ -32,8 +32,8 @@ new (function() {
                   vocative = data["name"];
                   console.log("return"+vocative);
                   callback(vocative);
-*/
               }
+*/
         });
     };
 
