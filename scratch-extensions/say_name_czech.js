@@ -4,7 +4,7 @@ new (function() {
     var vocative = "";
 
     function getVocative(name, callback){
-        console.log("vocative from",str);
+        console.log("vocative from",name);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
               dataType: 'jsonp',
@@ -20,7 +20,7 @@ new (function() {
                   console.log("return ",vocative);
                   callback = json["callback"];
 
-    };
+    }
 
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
