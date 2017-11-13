@@ -16,17 +16,23 @@ new (function() {
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
+    function f(json){
+                  vocative = json["name"];
+                  console.log("return"+vocative);
+    }
+
     ext.get_vocative = function(name, callback) {
         var name = name.replace(/ /g, "+");
         console.log('Getting vocative for ' + name+", callback "+callback);
         $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback='+callback,
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f&second_callback='+callback,
               dataType: 'jsonp',
-              success: function(data) {
+/*              success: function(data) {
                   // Got the data - parse it and return the temperature
                   vocative = data["name"];
                   console.log("return"+vocative);
                   callback(vocative);
+*/
               }
         });
     };
