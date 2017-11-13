@@ -6,7 +6,6 @@ new (function() {
                   vocative = json["name"];
                   console.log("return ",vocative);
                   callback = json["callback"];
-                  callback(vocative);
 
         };
 
@@ -31,7 +30,11 @@ new (function() {
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f&second_callback='+callback,
               dataType: 'jsonp',
-              callbackName: 'f',
+              success: function(data){
+                  vocative = data["name"];
+                  callback(vocative);
+              }
+
         });
     };
 
