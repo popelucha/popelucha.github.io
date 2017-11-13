@@ -5,14 +5,14 @@ new (function() {
     function getVocative(name, callback){
         console.log("vocative from",name);
         $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json',
               dataType: 'json',
               success: function(data){
                   console.log("success",data);
                   vocative = data["name"];
+                  console.log("vocative",vocative);
                   callback(vocative);
               }
-
         });
     }
 
