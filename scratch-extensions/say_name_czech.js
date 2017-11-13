@@ -3,6 +3,11 @@ new (function() {
     var ext = this;
     var vocative = "";
 
+    window.f = function(name){
+       vocative = name;
+       console.log("tady",name);
+    }
+
     function getVocative(name, callback){
         console.log("vocative from",name);
         $.ajax({
