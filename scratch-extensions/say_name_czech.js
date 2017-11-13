@@ -2,13 +2,6 @@
 new (function() {
     var ext = this;
 
-    function f(json){
-                  console.log("return ",json);
-                  vocative = json["name"];
-                  console.log("return ",vocative);
-
-    };
-
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -23,6 +16,14 @@ new (function() {
     // stop waiting.
 
     ext.get_vocative = function(name, callback) {
+        function f(json){
+                  console.log("return ",json);
+                  vocative = json["name"];
+                  console.log("return ",vocative);
+
+        };
+
+
         var name = name.replace(/ /g, "+");
         console.log('Getting vocative for ' + name+", callback "+callback);
         $.ajax({
