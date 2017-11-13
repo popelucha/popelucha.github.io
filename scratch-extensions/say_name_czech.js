@@ -3,7 +3,7 @@ new (function() {
     var ext = this;
     var vocative = "";
 
-    function getVocative(str, callback){
+    function getVocative(name, callback){
         console.log("vocative from",str);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
