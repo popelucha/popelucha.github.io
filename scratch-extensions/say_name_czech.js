@@ -15,7 +15,7 @@ new (function() {
         console.log("vocative from",name);
         var callback = callback;
         $.ajax({
-              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
+              url: 'https://crossorigin.me/https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
               dataType: 'json',
               jsonp: "json_callback",
               success: function(data){
