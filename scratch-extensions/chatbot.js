@@ -25,20 +25,24 @@ new (function() {
     }
 
     function getTopics(sentence, callback){
+        console.log("topics",sentence);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/topicks/process.py?text='+sentence+'&format=json',
               dataType: 'json',
               success: function(data){
+                  console.log("response",data);
                   callback(data[0]);
               }
         });
     }
 
     function getPolarity(sentence, callback){
+        console.log("polarity",sentence);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/polarity.py?topic='+sentence+'&output=json',
               dataType: 'json',
               success: function(data){
+                  console.log("response",data);
                   callback(data["polarity"]);
               }
         });
@@ -92,5 +96,5 @@ new (function() {
     };
 
     // Register the extension
-    ScratchExtensions.register('Czech vocative extension', descriptor, ext);
+    ScratchExtensions.register('Czech chatbot support', descriptor, ext);
 })({});
