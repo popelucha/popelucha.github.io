@@ -4,9 +4,9 @@ new (function() {
     var vocative = "";
     var callback;
 
-    window.f = function(json){
+    window.f = function(json, bla){
        vocative = json;
-       console.log("tady",json);
+       console.log("tady",json, callback, bla);
        vocative = json["name"];
        callback(vocative);
     }
