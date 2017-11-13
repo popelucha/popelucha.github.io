@@ -18,7 +18,7 @@ new (function() {
                   console.log("return ",json);
                   vocative = json["name"];
                   console.log("return ",vocative);
-                  callback = json["callback"];
+                  callback(vocative);
 
     }
 
