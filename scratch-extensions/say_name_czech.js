@@ -2,14 +2,18 @@
 new (function() {
     var ext = this;
     var vocative = "";
+    var callback;
 
-    window.f = function(name){
-       vocative = name;
-       console.log("tady",name);
+    window.f = function(json){
+       vocative = json;
+       console.log("tady",json);
+       vocative = data["name"];
+       callback(vocative);
     }
 
     function getVocative(name, callback){
         console.log("vocative from",name);
+        var callback = callback;
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json&callback=f',
               dataType: 'jsonp',
@@ -42,6 +46,7 @@ new (function() {
 
     ext.get_vocative = function(name, callback) {
         var name = name.replace(/ /g, "+");
+        var callback = callback;
         console.log('Getting vocative for ' + name+", callback "+callback);
         getVocative(name, callback);
     };
