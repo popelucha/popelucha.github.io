@@ -15,8 +15,8 @@ new (function() {
         console.log("vocative from",name);
 //        var callback = callback;
         $.ajax({
-//              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
-              url: 'http://scratchx-twitter.herokuapp.com/1.1/search/tweets.json',
+              url: 'https://nlp.fi.muni.cz/projekty/declension/names/process.py?np='+name+'&output=json', //&callback=f',
+//              url: 'http://scratchx-twitter.herokuapp.com/1.1/search/tweets.json',
               dataType: 'json',
  //             jsonp: "json_callback",
               success: function(data){
