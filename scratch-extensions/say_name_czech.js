@@ -31,7 +31,7 @@ new (function() {
               success: function(data) {
                   // Got the data - parse it and return the temperature
 //                  vocative = data["name"];
-/                  console.log("return",data);
+                  console.log("return",data);
 //                  callback(vocative);
               }
 
