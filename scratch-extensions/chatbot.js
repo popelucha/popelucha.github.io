@@ -36,14 +36,14 @@ new (function() {
         });
     }
 
-    function getPolarity(sentence, callback){
+    function getPolarity(sentence){
         console.log("polarity",sentence);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/declension/names/polarity.py?topic='+sentence+'&output=json',
               dataType: 'json',
               success: function(data){
                   console.log("response",data);
-                  callback(data["polarity"]);
+                  return data["polarity"];
               }
         });
     }
@@ -73,10 +73,10 @@ new (function() {
         getGender(name, callback);
     };
 
-    ext.get_polarity = function(sentence, callback) {
+    ext.get_polarity = function(sentence) {
         var sentence = sentence.replace(/ /g, "+");
         console.log('Getting polarity for ' + sentence+", callback "+callback);
-        getPolarity(polarity, callback);
+        getPolarity(polarity);
     };
 
     ext.get_topics = function(sentence, callback) {
