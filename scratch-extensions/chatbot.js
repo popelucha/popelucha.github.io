@@ -95,6 +95,12 @@ new (function() {
         getTopics(sentence, callback);
     };
 
+    ext.get_politeness = function(sentence, callback) {
+        var sentence = sentence.replace(/ /g, "+");
+        console.log('Getting politeness level for ' + sentence+", callback "+callback);
+        getPoliteness(sentence, callback);
+    };
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
@@ -102,6 +108,7 @@ new (function() {
             ['R', 'Get gender for the name %s', 'get_gender', 'm'],
             ['b', 'Get polarity for sentence %s', 'get_polarity', 1],
             ['R', 'Get topics for sentence %s', 'get_topics', ''],
+            ['R', 'Get politeness level for sentence %s', 'get_politeness', ''],
         ]
     };
 
