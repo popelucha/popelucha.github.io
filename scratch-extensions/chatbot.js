@@ -25,10 +25,12 @@ new (function() {
     }
 
     function getPoliteness(text, callback){
+        console.log("politeness",text);
         $.ajax({
               url: 'https://nlp.fi.muni.cz/projekty/topicks/rude.py?text='+text+'&output=json',
               dataType: 'json',
               success: function(data){
+		  console.log("politeness response",data);
                   callback(data["politeness"]);
               }
         });
