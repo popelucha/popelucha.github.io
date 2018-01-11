@@ -24,6 +24,16 @@ new (function() {
         });
     }
 
+    function getPoliteness(text, callback){
+        $.ajax({
+              url: 'https://nlp.fi.muni.cz/projekty/topicks/rude.py?text='+text+'&output=json',
+              dataType: 'json',
+              success: function(data){
+                  callback(data["politeness"]);
+              }
+        });
+    }
+
     function getTopics(sentence, callback){
         console.log("topics",sentence);
         $.ajax({
